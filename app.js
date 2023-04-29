@@ -1,7 +1,7 @@
 //Variable que mantiene el estado visible del carrito
 var carritoVisible = false;
 
-//Espermos que todos los elementos de la pàgina cargen para ejecutar el script
+//Se espera que todos los elementos de la pàgina cargen para ejecutar el script
 if(document.readyState == 'loading'){
     document.addEventListener('DOMContentLoaded', ready)
 }else{
@@ -10,14 +10,14 @@ if(document.readyState == 'loading'){
 
 function ready(){
     
-    //Agregremos funcionalidad a los botones eliminar del carrito
+    //Se agrego funcionalidad a los botones eliminar del carrito
     var botonesEliminarItem = document.getElementsByClassName('btn-eliminar');
     for(var i=0;i<botonesEliminarItem.length; i++){
         var button = botonesEliminarItem[i];
         button.addEventListener('click',eliminarItemCarrito);
     }
 
-    //Agrego funcionalidad al boton sumar cantidad
+    //Se agrego funcionalidad al boton sumar cantidad
     var botonesSumarCantidad = document.getElementsByClassName('sumar-cantidad');
     for(var i=0;i<botonesSumarCantidad.length; i++){
         var button = botonesSumarCantidad[i];
@@ -31,14 +31,14 @@ function ready(){
         button.addEventListener('click',restarCantidad);
     }
 
-    //Agregamos funcionalidad al boton Agregar al carrito
+    //Agrego funcionalidad al boton Agregar al carrito
     var botonesAgregarAlCarrito = document.getElementsByClassName('boton-item');
     for(var i=0; i<botonesAgregarAlCarrito.length;i++){
         var button = botonesAgregarAlCarrito[i];
         button.addEventListener('click', agregarAlCarritoClicked);
     }
 
-    //Agregamos funcionalidad al botón comprar
+    //Agrego funcionalidad al botón comprar
     document.getElementsByClassName('btn-pagar')[0].addEventListener('click',pagarClicked)
 }
 //Eliminamos todos los elementos del carrito y lo ocultamos
@@ -112,14 +112,14 @@ function agregarItemAlCarrito(titulo, precio, imagenSrc){
     item.innerHTML = itemCarritoContenido;
     itemsCarrito.append(item);
 
-    //Agregamos la funcionalidad eliminar al nuevo item
+    //Agrego la funcionalidad eliminar al nuevo item
      item.getElementsByClassName('btn-eliminar')[0].addEventListener('click', eliminarItemCarrito);
 
-    //Agregmos al funcionalidad restar cantidad del nuevo item
+    //Agrego al funcionalidad restar cantidad del nuevo item
     var botonRestarCantidad = item.getElementsByClassName('restar-cantidad')[0];
     botonRestarCantidad.addEventListener('click',restarCantidad);
 
-    //Agregamos la funcionalidad sumar cantidad del nuevo item
+    //Agrego la funcionalidad sumar cantidad del nuevo item
     var botonSumarCantidad = item.getElementsByClassName('sumar-cantidad')[0];
     botonSumarCantidad.addEventListener('click',sumarCantidad);
 
